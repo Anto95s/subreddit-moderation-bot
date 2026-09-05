@@ -1,4 +1,24 @@
-## Devvit Bare Template
+## How can i make a Reddit bot to interact with my subreddit?
+
+> Documentation here: https://developers.reddit.com/docs/
+
+Firstly, create your app here https://developers.reddit.com/new, and install it through npm. Then you will have the following files:
+
+- `server/index.ts`: 
+- `server/tsconfig.json`:
+- `shared/api.ts`:
+- `shared/tsconfig.json`:
+- `devvit.json`: configuration file, every event trigger or scheduled action must be declared here. You can read the schema at this link https://developers.reddit.com/schema/config-file.v1.json. For example, if you need the post creation trigger, you need to declare it inside the "triggers" variable. You can set [permissions](https://developers.reddit.com/docs/capabilities/devvit-web/devvit_web_configuration) to control what the script can access.
+- `tsconfig.json`:
+- ``:
+
+## How can i install my bot in my subreddit?
+
+> Instructions here: https://developers.reddit.com/docs/guides/best-practices/mod_resources#how-to-install-an-app
+
+By default, the app will be installed on a new test subreddit, but you can install it on a new subreddit where you are a mod. Through the UI or CLI with: `$ npx devvit install mySubreddit my-app`
+
+## Devvit Template Basic Instructions
 
 A practical [Devvit](https://developers.reddit.com/) app template with few dependencies. A little simpler at the expense of a little code.
 
