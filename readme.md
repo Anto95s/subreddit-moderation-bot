@@ -18,6 +18,12 @@ Firstly, create your app here https://developers.reddit.com/new, and install it 
 
 By default, the app will be installed on a new test subreddit, but you can install it on a new subreddit where you are a mod. Through the UI or CLI with: `$ npx devvit install mySubreddit my-app`
 
+<hr>
+
+<details>
+  
+<summary>Details about Devvit template</summary>
+
 ## Devvit Template Basic Instructions
 
 A practical [Devvit](https://developers.reddit.com/) app template with few dependencies. A little simpler at the expense of a little code.
@@ -46,3 +52,5 @@ A practical [Devvit](https://developers.reddit.com/) app template with few depen
 - Promise misuse linter.
 - Formatter and bundler.
 - TypeScript project skeleton split by environment (frontend, backend, test, etc).
+
+</details>
