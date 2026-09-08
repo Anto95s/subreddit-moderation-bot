@@ -11,7 +11,7 @@ Firstly, [create your app here](https://developers.reddit.com/new), and install 
 - `devvit.json`: configuration file, every event trigger or scheduled action must be declared here. You can read the schema at [this link](https://developers.reddit.com/schema/config-file.v1.json). For example, if you need the post creation trigger, you need to declare it inside the "triggers" variable. You can set [permissions](https://developers.reddit.com/docs/capabilities/devvit-web/devvit_web_configuration) to control what the script can access.
 - `tsconfig.json`: basic settings about the compiler and folder/file paths.
 
-In short, server will listen on a port and through an async callback will be captured all the events url and performed reddit actions. Through devvit playtest command the app will be deployed on the test subreddit.
+In short, createServer() will create an HTTP server (with Devvit) that will listen on a port, and, every HTTP request will be handled by an async callback that capture the events and performed reddit actions. Through devvit playtest command the app will be deployed on test (test subreddit).
 
 ## How can i install my bot in my subreddit?
 
