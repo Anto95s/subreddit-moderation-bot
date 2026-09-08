@@ -14,7 +14,7 @@ const server = createServer(async (req, res) => {
     if (postId) {
       await reddit.submitComment({
         id: postId,
-        text: 'BOT-TURA È QUI.',
+        text: 'Aceto Bot È QUI!',
         runAs: 'APP',
       });
     }

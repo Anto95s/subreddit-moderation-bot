@@ -4,6 +4,5 @@
   "compilerOptions": {
     "types": ["node"],
     "customConditions": ["server"]
-  },
-  "references": [{"path": "../shared/"}]
+  }
 }
