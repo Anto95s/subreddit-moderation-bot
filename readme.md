@@ -2,19 +2,20 @@
 
 > Documentation here: https://developers.reddit.com/docs/
 
-Firstly, create your app here https://developers.reddit.com/new, and install it through npm. Then you will have the following files:
+Firstly, [create your app here](https://developers.reddit.com/new), and install it through npm. Then you will have the following files:
 
-- `server/index.ts`: 
-- `server/tsconfig.json`:
-- `shared/api.ts`:
-- `shared/tsconfig.json`:
-- `devvit.json`: configuration file, every event trigger or scheduled action must be declared here. You can read the schema at this link https://developers.reddit.com/schema/config-file.v1.json. For example, if you need the post creation trigger, you need to declare it inside the "triggers" variable. You can set [permissions](https://developers.reddit.com/docs/capabilities/devvit-web/devvit_web_configuration) to control what the script can access.
-- `tsconfig.json`:
-- ``:
+- `server/index.ts`: index main file importing from @devvit/web/server:
+  - createServer: setup the server that will be created when the app will be deployed (on Reddit infrastructure or localhost), it will listen a port given by the next method.
+  - getServerPort: set a port for the server.
+  - reddit: execute actions listed in documentation
+- `devvit.json`: configuration file, every event trigger or scheduled action must be declared here. You can read the schema at [this link](https://developers.reddit.com/schema/config-file.v1.json). For example, if you need the post creation trigger, you need to declare it inside the "triggers" variable. You can set [permissions](https://developers.reddit.com/docs/capabilities/devvit-web/devvit_web_configuration) to control what the script can access.
+- `tsconfig.json`: basic settings about the compiler and folder/file paths.
+
+In short, createServer() will create an HTTP server (with Devvit) that will listen on a port, and, every HTTP request will be handled by an async callback that capture the events and performed reddit actions. Through devvit playtest command the app will be deployed on test (test subreddit).
 
 ## How can i install my bot in my subreddit?
 
-> Instructions here: https://developers.reddit.com/docs/guides/best-practices/mod_resources#how-to-install-an-app
+> Instructions [here](https://developers.reddit.com/docs/guides/best-practices/mod_resources#how-to-install-an-app)
 
 By default, the app will be installed on a new test subreddit, but you can install it on a new subreddit where you are a mod. Through the UI or CLI with: `$ npx devvit install mySubreddit my-app`
 
