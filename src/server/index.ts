@@ -1,31 +1,25 @@
-import { createServer, getServerPort, reddit } from '@devvit/web/server';
+import { createServer, getServerPort } from '@devvit/web/server';
+import { CONFIG_ACTIONS } from '../actions/config'
 
 const server = createServer(async (req, res) => {
-  if (req.url === '/internal/on/post/create' && req.method === 'POST') {
-    let body = '';
+  actionHandler(req, res);
+});
 
-    for await (const chunk of req) {
-      body += chunk;
-    }
+async function actionHandler(req: any, res: any) {
+  //Retrieve any action to perform that matches the received req.url event
+  const handler = CONFIG_ACTIONS[req.url as keyof typeof CONFIG_ACTIONS];
 
-    const event = JSON.parse(body);
-    const postId = event.post?.id;
-
-    if (postId) {
-      await reddit.submitComment({
-        id: postId,
-        text: 'Aceto Bot È QUI!',
-        runAs: 'APP',
-      });
-    }
-
-    res.writeHead(200, { 'Content-Type': 'application/json' });
-    res.end(JSON.stringify({ status: 'ok' }));
+  if (!handler) {
+    res.writeHead(404);
+    res.end();
     return;
   }
 
-  res.writeHead(404);
-  res.end();
-});
+  //Call the action if exists
+  await handler(req, res);
+
+  const response = {status: 'ok'};
+  return response;
+}
 
 server.listen(getServerPort());

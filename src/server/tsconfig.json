@@ -4,5 +4,8 @@
   "compilerOptions": {
     "types": ["node"],
     "customConditions": ["server"]
-  }
+  },
+  "include": [
+    "../**/*.ts"
+  ]
 }

@@ -3,6 +3,8 @@
   "files": [],
   "references": [
     {"path": "./src/server/"},
+    {"path": "./src/actions/"},
+    {"path": "./src/reddit/"},
     {"path": "./src/test/"}
   ]
 }
